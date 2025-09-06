@@ -14,5 +14,33 @@ body {
   @apply cursor-pointer text-yellow-500;
 }
 h1 {
-  @apply text-3xl md:text-4xl xl:text-5xl font-bold;
+  @apply text-3xl md:text-4xl xl:text-5xl  font-bold;
 }
+.section {
+  @apply py-20 md:py-28;
+}
+
+/* login page */
+.input-div {
+  @apply flex flex-col text-2xl text-left gap-1;
+}
+.input-box {
+  @apply rounded-md p-1 border-2 outline-none focus:border-cyan-400 focus:bg-slate-50;
+}
+.input-div {
+  @apply relative my-4;
+}
+.input-field {
+  @apply block w-72 pt-10  px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+   dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600
+   max-sm:w-[14rem];
+}
+.input-label {
+  @apply absolute text-sm text-white duration-300 transform translate-y-0 scale-75 top-0 -z-10 origin-[0] peer-focus:left-0 
+        peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:translate-y-0 peer-focus:scale-75
+        peer-focus:-translate-y-6 max-sm:text-xl;
+}
+/* absolute left-0 text-white duration-300 transform -translate-y-3 scale-75 top-2 origin-[0]
+         peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100
+         peer-focus:-translate-y-3 peer-focus:scale-75
+         peer-focus:text-blue-600 peer-focus:dark:text-blue-500 */

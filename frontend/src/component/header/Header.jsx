@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+
 // import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const token = localStorage.getItem("token");
   const [menuOpen, setMenuOpen] = useState(false);
   // const location = useLocation();
 
@@ -40,26 +42,53 @@ const Header = () => {
             menuOpen ? "left-0" : "left-[100%]"
           } min-h-[80vh] w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center duration-300 overflow-hidden lg:static lg:min-h-fit lg:bg-transparent lg:w-auto`}
         >
-          <ul className="flex flex-col items-center gap-8 lg:flex-row">
-            <li>
-              <Link
-                to={"/login"}
-                className="nav-link"
-                onClick={handleCloseMenu}
-              >
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={"/register"}
-                className="nav-link"
-                onClick={handleCloseMenu}
-              >
-                register
-              </Link>
-            </li>
-          </ul>
+          {token ? (
+            <>
+              <ul className="flex flex-col items-center gap-8 lg:flex-row">
+                <li>
+                  <Link
+                    to={"/dashboard"}
+                    className="nav-link"
+                    onClick={handleCloseMenu}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={"/register"}
+                    className="nav-link"
+                    onClick={handleCloseMenu}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            </>
+          ) : (
+            <>
+              <ul className="flex flex-col items-center gap-8 lg:flex-row">
+                <li>
+                  <Link
+                    to={"/login"}
+                    className="nav-link"
+                    onClick={handleCloseMenu}
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={"/register"}
+                    className="nav-link"
+                    onClick={handleCloseMenu}
+                  >
+                    register
+                  </Link>
+                </li>
+              </ul>
+            </>
+          )}
         </div>
 
         {/* Toggle Button */}
